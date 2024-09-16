@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+<body>
+<h1>Login</h1>
+<div id="login-links">
+    <a href="/oauth2/authorization/google">Login with Google</a>
+    <br>
+    <a href="/oauth2/authorization/github">Login with GitHub</a>
+</div>
+<script>
+    function getCookie(name) {
+        let value = "; " + document.cookie;
+        let parts = value.split("; " + name + "=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    function checkTokens() {
+        const accessToken = getCookie("accessToken");
+        if (accessToken) {
+            window.location.href = "/";
+        }
+    }
+
+    checkTokens();
+</script>
+</body>
+</html>
